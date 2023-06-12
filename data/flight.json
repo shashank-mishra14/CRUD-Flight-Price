@@ -1,0 +1,24 @@
+[{
+    "id": 1,
+    "name": "Vistara",
+    "price": 3000
+}, {
+    "id": 2,
+    "name": "Indigo",
+    "price": 2500
+}, {
+    "id": 3,
+    "name": "Air India",
+    "price": 4000
+
+}, {
+    "id": 4,
+    "name": "Spice Jet",
+    "price": 3500
+}, {
+    "id": 5,
+    "name": "Go Air",
+    "price": 4500
+}
+    
+]

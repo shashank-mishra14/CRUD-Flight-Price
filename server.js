@@ -12,17 +12,17 @@ const server = http.createServer((req, res) => {
     case "POST":
       getReq(req, res);
       break;
-      case "PUT":
-        getReq(req, res);
-        break;
-        case "DELETE":
-            getReq(req, res);
-            break;
-            default:
+    case "PUT":
+      getReq(req, res);
+      break;
+    case "DELETE":
+      getReq(req, res);
+      break;
+    default:
   }
-  res.statusCode = 200;
+  res.statusCode = 404;
   res.setHeader("Content-Type", "application/json");
-  res.write(JSON.stringify({ message: "Hey whatsup" }));
+  res.write(JSON.stringify({ title: "Not Found", message: "Route not found" }));
   res.end();
 });
 
