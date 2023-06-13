@@ -1,3 +1,4 @@
+
 module.exports = function (req, res) {
   let baseUrl = req.url.substring(0, req.url.lastIndexOf("/") + 1);
   let date = req.url.split("/")[3];
@@ -16,7 +17,7 @@ module.exports = function (req, res) {
     res.end();
   } else if (baseUrl === "/api/flight/" && regexV4.test(date)) {
     res.setHeader("Content-Type", "application/json");
-    let filteredFlight = req.flight.filter((flight) => flight.date === date);
+    let filteredFlight = req.flight.filter((flight) =>{return flight.date === date});
     if(flight.length > 0){
       res.statusCode = 200;
       res.write(JSON.stringify(filteredFlight));
