@@ -14,7 +14,7 @@ module.exports = function (req, res) {
     res.setHeader("Content-Type", "application/json");
     res.write(JSON.stringify({ title: "Bad Request", message: "Invalid ID" }));
     res.end();
-  } else if (baseUrl === "/api/flights/" && regexV4.test(date)) {
+  } else if (baseUrl === "/api/flight/" && regexV4.test(date)) {
     res.setHeader("Content-Type", "application/json");
     let filteredFlight = req.flight.filter((flight) => flight.date === date);
     if(flight.length > 0){
