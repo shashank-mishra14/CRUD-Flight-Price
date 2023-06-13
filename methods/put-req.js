@@ -24,17 +24,27 @@ module.exports = async function (req, res) {
           JSON.stringify({ title: "Not Found", message: "Flight not found" })
         );
         res.end();
-      }else{
-        req.flight[index] = {date,...body};
+      } else {
+        req.flight[index] = { date, ...body };
+        writeToFile(req.flight);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(
+          JSON.stringify(JSON.stringify(req.flight[index]))
+        );
       }
     } catch (err) {
       console.log(err);
       res.statusCode = 400;
       res.setHeader("Content-Type", "application/json");
-      res.write(
-        JSON.stringify({ title: "Not Found", message: "Request not found" })
-      );
+      res.write(JSON.stringify({ title: "Bad Request", message: "Invalid ID" }));
       res.end();
     }
+  }else {
+    res.statusCode = 404;
+    res.setHeader("Content-Type", "application/json");
+    res.write(
+      JSON.stringify({ title: "Not Found", message: "Route not found" })
+    );
+    res.end();
   }
 };

@@ -23,5 +23,12 @@ module.exports = function (req, res) {
       res.writeHead(204, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ title: "Flight deleted", message: "Flight deleted" }));
     }
+  }else {
+    res.statusCode = 404;
+    res.setHeader("Content-Type", "application/json");
+    res.write(
+      JSON.stringify({ title: "Not Found", message: "Route not found" })
+    );
+    res.end();
   }
 }
